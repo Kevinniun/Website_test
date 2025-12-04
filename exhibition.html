@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>虚拟展厅 - 2024级外文1班第一团支部</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>2024级外文1班第一团支部活动记录</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="activities.html">活动记录</a></li>
+        <li><a href="exhibition.html" class="active">虚拟展厅</a></li>
+        <li><a href="about.html">关于我们</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="exhibition-container">
+    <div class="exhibition-image">
+      <img id="exhibit-img" src="assets/images/exhibit/IMG_5382.jpg" alt="展厅图片">
+      <button id="btn-next" class="nav-btn next">↑</button>
+      <button id="btn-back" class="nav-btn back">↓</button>
+      <button id="btn-left" class="nav-btn left">←</button>
+      <button id="btn-right" class="nav-btn right">→</button>
+      <button id="btn-gallery" class="nav-btn gallery">🖼</button>
+      <button id="btn-audio" class="nav-btn audio">🎧</button>
+    </div>
+
+    <div id="gallery-overlay" class="gallery-overlay">
+    <div class="gallery-content">
+      <button id="close-gallery" class="close-gallery">×</button>
+      <div id="gallery-images" class="gallery-images"></div>
+    </div>
+    <div id="image-zoom" class="image-zoom">
+      <img id="zoomed-img" src="" alt="放大图片">
+    </div>
+
+  </div>
+
+  </main>
+
+  
+<!-- 语音导览面板 -->
+<div id="audio-overlay" class="audio-overlay">
+  <div class="audio-content">
+    <button id="close-audio" class="close-audio">×</button>
+
+    <h2>选择语音导览</h2>
+
+    <div class="audio-list">
+      <button class="audio-option" data-audio="zh.mp3">中文（普通话）</button>
+      <button class="audio-option" data-audio="sh.mp3">上海话</button>
+      <button class="audio-option" data-audio="cy.mp3">川渝方言</button>
+      <button class="audio-option" data-audio="en.mp3">English</button>
+    </div>
+
+    <!-- 音频播放器（菜单关闭后仍播放） -->
+    <audio id="guide-player" controls style="width: 100%; margin-top: 20px;"></audio>
+  </div>
+</div>
+
+  <footer>
+    <p>© 2025 2024级外文1班第一团支部 版权所有</p>
+  </footer>
+
+  <script src="assets/js/exhibition.js"></script>
+</body>
+</html>
