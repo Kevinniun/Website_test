@@ -349,3 +349,129 @@ footer {
 .image-zoom img:hover {
   transform: scale(1.02);
 }
+
+/* === 语音导览面板（覆盖层） === */
+.audio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+}
+
+/* 弹窗内容 */
+.audio-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* 关闭按钮 */
+.close-audio {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 导览按钮 */
+.nav-btn.audio {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 3000;   /* 永远在最上层 */
+  white-space: nowrap; /* 不换行 */
+}
+
+
+/* 四种导览语言按钮 */
+.audio-option {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.audio-option:hover {
+  background: #e4e4e4;
+}
+
+/* 固定在屏幕底部的语音按钮 */
+.nav-btn.audio {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 3000;
+  white-space: nowrap;
+}
+
+/* 整个菜单的遮罩层 */
+.audio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+}
+
+/* 菜单主体 */
+.audio-content {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 350px;
+  position: relative;
+  text-align: center;
+}
+
+/* 关闭按钮 */
+.close-audio {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 语言选项 */
+.audio-option {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+.audio-option:hover {
+  background: #e4e4e4;
+}
