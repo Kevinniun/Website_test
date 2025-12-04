@@ -130,3 +130,71 @@ btnGallery.addEventListener("click", () => {
 imageZoom.addEventListener("click", () => {
   imageZoom.style.display = "none";
 });
+
+// // ===========================
+// // 语音导览 - 四种语言播放
+// // ===========================
+
+// const audioBtn = document.getElementById("btn-audio");
+// const audioOverlay = document.getElementById("audio-overlay");
+// const closeAudio = document.getElementById("close-audio");
+// const audioOptions = document.querySelectorAll(".audio-option");
+// const guidePlayer = document.getElementById("guide-player");
+
+// // 打开面板
+// audioBtn.addEventListener("click", () => {
+//   audioOverlay.style.display = "flex";
+// });
+
+// // 关闭面板
+// closeAudio.addEventListener("click", () => {
+//   guidePlayer.pause();
+//   audioOverlay.style.display = "none";
+// });
+
+// // 点击选择语言
+// audioOptions.forEach(option => {
+//   option.addEventListener("click", () => {
+//     const file = option.dataset.audio;
+//     guidePlayer.src = `assets/sounds/${file}`;
+//     guidePlayer.play();
+//   });
+// });
+
+// ===========================
+// 语音导览系统（最终稳定版）
+// ===========================
+
+const audioBtn = document.getElementById("btn-audio");
+const audioOverlay = document.getElementById("audio-overlay");
+const closeAudio = document.getElementById("close-audio");
+const audioOptions = document.querySelectorAll(".audio-option");
+const guidePlayer = document.getElementById("guide-player");
+
+// 打开语音菜单（不影响播放）
+audioBtn.addEventListener("click", () => {
+  audioOverlay.style.display = "flex";
+});
+
+// 关闭语音菜单（不停止播放）
+closeAudio.addEventListener("click", () => {
+  audioOverlay.style.display = "none";
+});
+
+// 点击语言播放语音
+audioOptions.forEach(option => {
+  option.addEventListener("click", () => {
+    const file = option.dataset.audio;
+    const path = `assets/sounds/${file}`;
+
+    // 如果选择相同语言，不重新加载音频
+    if (guidePlayer.src.endsWith(file)) {
+      if (guidePlayer.paused) guidePlayer.play();
+      return;
+    }
+
+    // 切换音频
+    guidePlayer.src = path;
+    guidePlayer.play();
+  });
+});
