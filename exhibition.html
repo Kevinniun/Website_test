@@ -27,6 +27,7 @@
       <button id="btn-left" class="nav-btn left">←</button>
       <button id="btn-right" class="nav-btn right">→</button>
       <button id="btn-gallery" class="nav-btn gallery">🖼</button>
+      <button id="btn-audio" class="nav-btn audio">🎧</button>
     </div>
 
     <div id="gallery-overlay" class="gallery-overlay">
@@ -37,9 +38,30 @@
     <div id="image-zoom" class="image-zoom">
       <img id="zoomed-img" src="" alt="放大图片">
     </div>
+
   </div>
 
   </main>
+
+  
+<!-- 语音导览面板 -->
+<div id="audio-overlay" class="audio-overlay">
+  <div class="audio-content">
+    <button id="close-audio" class="close-audio">×</button>
+
+    <h2>选择语音导览</h2>
+
+    <div class="audio-list">
+      <button class="audio-option" data-audio="zh.mp3">中文（普通话）</button>
+      <button class="audio-option" data-audio="sh.mp3">上海话</button>
+      <button class="audio-option" data-audio="cy.mp3">川渝方言</button>
+      <button class="audio-option" data-audio="en.mp3">English</button>
+    </div>
+
+    <!-- 音频播放器（菜单关闭后仍播放） -->
+    <audio id="guide-player" controls style="width: 100%; margin-top: 20px;"></audio>
+  </div>
+</div>
 
   <footer>
     <p>© 2025 2024级外文1班第一团支部 版权所有</p>
