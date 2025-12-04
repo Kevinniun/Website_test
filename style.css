@@ -1,0 +1,477 @@
+/* 全局样式 */
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+/* 顶部标题和导航栏 */
+header {
+  background-color: #c80000;
+  color: white;
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+nav a.active,
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* 首页封面 */
+.hero {
+  width: 100%;
+  background: linear-gradient(120deg, #c80000, #e84e4e);
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+}
+
+
+
+.hero-text h2 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  background-color: white;
+  color: #c80000;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #ffeaea;
+}
+
+/* 活动列表页 */
+.activities {
+  padding: 2rem 1rem;
+  width: 100%;
+}
+
+.activities h2 {
+  text-align: center;
+  color: #c80000;
+  margin-bottom: 1.5rem;
+}
+
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.activity-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+}
+
+.activity-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.activity-card h3 {
+  margin: 0.5rem 0;
+}
+
+.activity-card p {
+  padding: 0 1rem 1rem;
+  font-size: 0.95rem;
+}
+
+/* 活动详情页 */
+.activity-detail {
+  margin: 2rem auto;
+  padding: 0 1rem;
+  max-width: 100%;
+}
+
+.activity-detail img {
+  width: 40%;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* 关于我们页 */
+.about {
+  padding: 2rem 1rem;
+  text-align: center;
+  max-width: 900px;
+  margin: auto;
+}
+
+.about h2 {
+  color: #c80000;
+}
+
+/* 页脚 */
+footer {
+  background-color: #c80000;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* 响应式微调 */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .activity-card img {
+    height: 140px;
+  }
+
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== 虚拟展厅 4向导航 ========== */
+.exhibition-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exhibition-image img {
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;
+  transition: opacity 0.8s ease;
+  background-color: black;
+}
+
+/* 按钮通用样式 */
+.nav-btn {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  color: #c80000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-btn:hover {
+  background-color: white;
+  transform: scale(1.1);
+}
+
+/* 按钮位置布局 */
+.next { top: 10%; left: 50%; transform: translateX(-50%); }   /* 上 */
+.back { bottom: 10%; left: 50%; transform: translateX(-50%); } /* 下 */
+.left { top: 50%; left: 10%; transform: translateY(-50%); }     /* 左 */
+.right { top: 50%; right: 10%; transform: translateY(-50%); }   /* 右 */
+
+/* ========== 展品一览按钮 ========== */
+.gallery {
+  bottom: 10%;
+  right: 10%;
+  font-size: 1.5rem;
+}
+
+/* ========== 展品弹窗 Overlay ========== */
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.gallery-content {
+  position: relative;
+  width: 90%;
+  max-width: 900px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gallery-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gallery-images img {
+  width: 200px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.gallery-images img:hover {
+  transform: scale(1.05);
+}
+
+.close-gallery {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: #c80000;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* ========== “开始云参观” 按钮特效 ========== */
+.start-btn {
+  position: absolute;
+  bottom: 12%;                     /* 再往下放一点 */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(200, 0, 0, 0.6);  /* 半透明红色 */
+  color: white;
+  border: none;
+  border-radius: 20px;              /* 圆角矩形 */
+  padding: 6px 16px;                /* 更紧凑的尺寸 */
+  font-size: 0.95rem;               /* 较小字体 */
+  font-weight: 500;
+  width: 200px;
+  height: 50px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+  backdrop-filter: blur(2px);       /* 背景略微模糊，增强质感 */
+  opacity: 0.85;                    /* 整体半透明 */
+}
+
+.start-btn:hover {
+  background-color: rgba(220, 0, 0, 0.85);
+  transform: translateX(-50%) scale(1.05);
+  opacity: 1;
+}
+
+/* ========== 展品点击放大 ========== */
+.image-zoom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: none;                  /* 默认隐藏 */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.image-zoom img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  cursor: zoom-out;
+  transition: transform 0.3s ease;
+}
+
+.image-zoom img:hover {
+  transform: scale(1.02);
+}
+
+/* === 语音导览面板（覆盖层） === */
+.audio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+}
+
+/* 弹窗内容 */
+.audio-content {
+  background: white;
+  padding: 20px 30px;
+  border-radius: 12px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* 关闭按钮 */
+.close-audio {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 导览按钮 */
+.nav-btn.audio {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 3000;   /* 永远在最上层 */
+  white-space: nowrap; /* 不换行 */
+}
+
+
+/* 四种导览语言按钮 */
+.audio-option {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+
+.audio-option:hover {
+  background: #e4e4e4;
+}
+
+/* 固定在屏幕底部的语音按钮 */
+.nav-btn.audio {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.85);
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-size: 16px;
+  z-index: 3000;
+  white-space: nowrap;
+}
+
+/* 整个菜单的遮罩层 */
+.audio-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 2500;
+}
+
+/* 菜单主体 */
+.audio-content {
+  background: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  width: 350px;
+  position: relative;
+  text-align: center;
+}
+
+/* 关闭按钮 */
+.close-audio {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 语言选项 */
+.audio-option {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f2f2f2;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 16px;
+}
+.audio-option:hover {
+  background: #e4e4e4;
+}
